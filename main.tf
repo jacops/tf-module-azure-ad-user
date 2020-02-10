@@ -18,6 +18,6 @@ resource "azuread_user" "user" {
   force_password_change = true
 
   lifecycle {
-    ignore_changes = [password]
+    ignore_changes = [password, force_password_change]
   }
 }
