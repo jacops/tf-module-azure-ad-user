@@ -1,4 +1,4 @@
-resource "random_string" "jakubigla_password" {
+resource "random_string" "password" {
   length  = 16
   special = false
 }
@@ -13,7 +13,7 @@ locals {
 
 resource "azuread_user" "user" {
   display_name          = var.name
-  password              = random_string.jakubigla_password.result
+  password              = random_string.password.result
   user_principal_name   = "${local.user_principal_name}@${data.azuread_domains.main.domains.0.domain_name}"
   force_password_change = true
 
